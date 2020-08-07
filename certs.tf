@@ -10,7 +10,7 @@ resource "null_resource" "apply_issuer" {
 
   triggers = {
     k8s_namespace = var.k8s_namespace
-    issuer        = templatefile("${path.module}/cert-issuer.yaml", {
+    issuer = templatefile("${path.module}/cert-issuer.yaml", {
       private_key_secret = module.acme.account_key_pem
       hosted_zone_id     = module.zone.zone_id
       email              = var.certificate_email
