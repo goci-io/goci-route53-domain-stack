@@ -1,6 +1,6 @@
 locals {
   domain_parts  = split(".", var.domain_name)
-  parent_domain = slice(local.domain_parts, 1, length(local.domain_parts))
+  parent_domain = join(".", slice(local.domain_parts, 1, length(local.domain_parts)))
 }
 
 module "zone" {
