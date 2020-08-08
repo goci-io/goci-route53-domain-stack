@@ -24,15 +24,15 @@ variable "region" {
   description = "Short Region Name used for Labeling and Naming"
 }
 
-variable "parent_domain_name" {
-  type        = string
-  default     = ""
-  description = "Parent Domain to delegate Access from"
-}
-
 variable "domain_name" {
   type        = string
   description = "Domain Name for External DNS to create Records in"
+}
+
+variable "iam_attach_policy" {
+  type        = bool
+  default     = true
+  description = "When an existing Role is given via iam_role_arn we can attach required Policies for External DNS to work"
 }
 
 variable "iam_role_arn" {
