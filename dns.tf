@@ -22,8 +22,8 @@ module "external_dns" {
   domains               = [var.domain_name]
   aws_region            = var.aws_region
   create_iam_role       = false
-  iam_attach_policy     = true
   iam_role_arn          = var.iam_role_arn
+  iam_attach_policy     = var.iam_attach_policy
   iam_role_external_id  = var.iam_role_external_id
   iam_role_trusted_arns = [var.iam_role_trusted_arn]
 }
