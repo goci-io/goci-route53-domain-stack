@@ -61,3 +61,15 @@ variable "certificate_email" {
   type        = string
   description = "E-Mail used to send for example Expiry Notices to"
 }
+
+variable "aws_assume_role_arn" {
+  type        = string
+  default     = ""
+  description = "Role to assume to create the Hosted Zone"
+}
+
+variable "aws_sts_external_id" {
+  type        = string
+  default     = ""
+  description = "External-ID used to assume the Role to create the Hosted Zone"
+}
