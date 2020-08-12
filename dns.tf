@@ -4,7 +4,7 @@ locals {
 }
 
 module "zone" {
-  source              = "git::https://github.com/goci-io/aws-route53-zone.git?ref=tags/0.5.1"
+  source              = "git::https://github.com/goci-io/aws-route53-zone.git?ref=master"
   namespace           = var.namespace
   stage               = var.stage
   attributes          = [var.region]
