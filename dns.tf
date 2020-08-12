@@ -4,12 +4,13 @@ locals {
 }
 
 module "zone" {
-  source             = "git::https://github.com/goci-io/aws-route53-zone.git?ref=tags/0.5.1"
-  namespace          = var.namespace
-  stage              = var.stage
-  attributes         = [var.region]
-  domain_name        = var.domain_name
-  parent_domain_name = local.parent_domain
+  source              = "git::https://github.com/goci-io/aws-route53-zone.git?ref=tags/0.5.1"
+  namespace           = var.namespace
+  stage               = var.stage
+  attributes          = [var.region]
+  domain_name         = var.domain_name
+  parent_domain_name  = local.parent_domain
+  certificate_enabled = false
 }
 
 module "external_dns" {
@@ -18,8 +19,8 @@ module "external_dns" {
   stage                 = var.stage
   region                = var.region
   k8s_namespace         = var.k8s_namespace
-  cluster_fqdn          = var.domain_name
-  domains               = [var.domain_name]
+  cluster_fqdn          = module.zone.domain_name
+  domains               = [module.zone.domain_name]
   aws_region            = var.aws_region
   create_iam_role       = false
   iam_role_arn          = var.iam_role_arn
