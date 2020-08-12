@@ -1,5 +1,5 @@
 output "issuer_name" {
-  value = var.name
+  value = var.namespace
 }
 
 output "domain_name" {

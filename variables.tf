@@ -9,11 +9,6 @@ variable "stage" {
   description = "Stage or Environment this Release is for"
 }
 
-variable "name" {
-  type        = string
-  description = "Name of your Stack. Applys to Release and Issuer Name"
-}
-
 variable "aws_region" {
   type        = string
   description = "AWS Region used for External DNS"
@@ -48,6 +43,7 @@ variable "iam_role_external_id" {
 
 variable "iam_role_trusted_arn" {
   type        = string
+  default     = ""
   description = "IAM ARN allowed to assume the External DNS Role"
 }
 
