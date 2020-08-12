@@ -4,7 +4,7 @@ locals {
 }
 
 module "zone" {
-  source             = "git::https://github.com/goci-io/aws-route53-zone.git?ref=tags/0.5.0"
+  source             = "git::https://github.com/goci-io/aws-route53-zone.git?ref=tags/0.5.1"
   namespace          = var.namespace
   stage              = var.stage
   attributes         = [var.region]
@@ -25,5 +25,5 @@ module "external_dns" {
   iam_role_arn          = var.iam_role_arn
   iam_attach_policy     = var.iam_attach_policy
   iam_role_external_id  = var.iam_role_external_id
-  iam_role_trusted_arns = [var.iam_role_trusted_arn]
+  iam_role_trusted_arns = var.iam_role_trusted_arn == "" ? [] : [var.iam_role_trusted_arn]
 }
