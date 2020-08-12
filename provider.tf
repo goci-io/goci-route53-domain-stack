@@ -11,3 +11,11 @@ provider "kubernetes" {
   version          = "~> 1.11"
   load_config_file = false
 }
+
+provider "helm" {
+  version = "~> 1.1"
+
+  kubernetes {
+    load_config_file = false
+  }
+}

@@ -13,5 +13,6 @@
 - Cert-Manager Issuer Resource for the newly created and scoped Root Domain
 - Letsencrypt.org Account Registration using provided certificate_email
 
+**Note:** This Module is intended to be used as "root module".
 
 _This repository was created via [github-repository](https://github.com/goci-io/github-repository)._
