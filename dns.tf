@@ -14,7 +14,7 @@ module "zone" {
 }
 
 module "external_dns" {
-  source                = "git::https://github.com/goci-io/aws-external-cluster-dns.git?ref=tags/0.3.0"
+  source                = "git::https://github.com/goci-io/aws-external-cluster-dns.git?ref=master"
   namespace             = var.namespace
   stage                 = var.stage
   region                = var.region
