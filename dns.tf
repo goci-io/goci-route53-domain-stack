@@ -4,7 +4,7 @@ locals {
 }
 
 module "zone" {
-  source              = "git::https://github.com/goci-io/aws-route53-zone.git?ref=master"
+  source              = "git::https://github.com/goci-io/aws-route53-zone.git?ref=tags/0.5.2"
   namespace           = var.namespace
   stage               = var.stage
   attributes          = [var.region]
@@ -14,7 +14,7 @@ module "zone" {
 }
 
 module "external_dns" {
-  source                = "git::https://github.com/goci-io/aws-external-cluster-dns.git?ref=master"
+  source                = "git::https://github.com/goci-io/aws-external-cluster-dns.git?ref=tags/0.4.0-rc1"
   namespace             = var.namespace
   stage                 = var.stage
   region                = var.region
