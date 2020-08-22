@@ -5,7 +5,7 @@ module "acme" {
 
 resource "kubernetes_secret" "tls_ca_key" {
   metadata {
-    name      = format("%s-route53dns-ca", var.namespace)
+    name      = format("%s-ca", var.name)
     namespace = var.k8s_namespace
   }
 
@@ -26,7 +26,7 @@ resource "null_resource" "apply_issuer" {
       hosted_zone_id     = module.zone.zone_id
       email              = var.certificate_email
       aws_region         = var.aws_region
-      name               = var.namespace
+      name               = var.name
     })
   }
 }
@@ -38,7 +38,7 @@ resource "null_resource" "delete_issuer" {
   }
 
   triggers = {
-    name          = var.namespace
+    name          = var.name
     k8s_namespace = var.k8s_namespace
   }
 }

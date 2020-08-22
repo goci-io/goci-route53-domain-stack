@@ -3,6 +3,12 @@ variable "namespace" {
   description = "Organization or Company Prefix"
 }
 
+variable "name" {
+  type        = string
+  default     = "external-dns"
+  description = "Name of Release and Resources"
+}
+
 variable "stage" {
   type        = string
   default     = "ci"
