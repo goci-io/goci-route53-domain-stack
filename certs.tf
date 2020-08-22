@@ -38,7 +38,7 @@ resource "null_resource" "delete_issuer" {
   }
 
   triggers = {
-    name          = var.namespace
+    name          = var.name
     k8s_namespace = var.k8s_namespace
   }
 }
