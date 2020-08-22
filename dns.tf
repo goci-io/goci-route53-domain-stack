@@ -18,6 +18,7 @@ module "external_dns" {
   namespace             = var.namespace
   stage                 = var.stage
   region                = var.region
+  name                  = var.name
   k8s_namespace         = var.k8s_namespace
   cluster_fqdn          = module.zone.domain_name
   domains               = [module.zone.domain_name]
