@@ -4,13 +4,14 @@ locals {
 }
 
 module "zone" {
-  source              = "git::https://github.com/goci-io/aws-route53-zone.git?ref=tags/0.5.2"
+  source              = "git::https://github.com/goci-io/aws-route53-zone.git?ref=tags/0.6.0"
   namespace           = var.namespace
   stage               = var.stage
   attributes          = [var.region]
   domain_name         = var.domain_name
   parent_domain_name  = local.parent_domain
   certificate_enabled = false
+  force_destroy       = true
 }
 
 module "external_dns" {
